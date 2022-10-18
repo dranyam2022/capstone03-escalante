@@ -2,15 +2,17 @@ import './App.css';
 import AppNavbar from './components/AppNavbar';
 import Home from './pages/Home'
 import Courses from './pages/Courses'
-import {Container} from 'react-bootstrap';
+import Register from './pages/Register';
+import { Container } from 'react-bootstrap';
+import Login from './pages/Login';
+
 
 function App() {
   return (
     <>
-      <AppNavbar/>
+      <AppNavbar />
       <Container>
-        <Home/>
-        <Courses/>
+        <Login />
       </Container>
     </>
   );
