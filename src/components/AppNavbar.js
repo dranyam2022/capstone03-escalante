@@ -1,11 +1,14 @@
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import { Link, NavLink } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import UserContext from '../UserContext'
 
 export default function AppNavbar() {
 
-	const [user, setUser] = useState(localStorage.getItem('email'))
+	const { user } = useContext(UserContext)
+
+	// const [user, setUser] = useState(localStorage.getItem('email'))
 
 	return (
 		<Navbar bg="light" expand="lg">
@@ -15,15 +18,13 @@ export default function AppNavbar() {
 				<Nav className="ml-auto">
 					<Nav.Link as={NavLink} to="/">Home</Nav.Link>
 					<Nav.Link as={NavLink} to="/courses">Courses</Nav.Link>
-					{
-						(user)
-							?
-							<Nav.Link as={NavLink} to="/logout">Logout</Nav.Link>
-							:
-							<>
-								<Nav.Link as={NavLink} to="/login">Login</Nav.Link>
-								<Nav.Link as={NavLink} to="/register">Register</Nav.Link>
-							</>
+					{(user.email) ?
+						<Nav.Link as={NavLink} to="/logout">Logout</Nav.Link>
+						:
+						<>
+							<Nav.Link as={NavLink} to="/login">Login</Nav.Link>
+							<Nav.Link as={NavLink} to="/register">Register</Nav.Link>
+						</>
 					}
 
 				</Nav>
