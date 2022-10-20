@@ -18,7 +18,7 @@ export default function AppNavbar() {
 				<Nav className="ml-auto">
 					<Nav.Link as={NavLink} to="/">Home</Nav.Link>
 					<Nav.Link as={NavLink} to="/courses">Courses</Nav.Link>
-					{(user.email) ?
+					{(user.id) ?
 						<Nav.Link as={NavLink} to="/logout">Logout</Nav.Link>
 						:
 						<>

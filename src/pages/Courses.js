@@ -1,18 +1,30 @@
 import CourseCard from '../components/CourseCard';
-import courses_data from '../data/courses';
+import { useEffect, useState } from 'react'
+// import courses_data from '../data/courses';
 
-export default function Courses(){
-	const courses = courses_data.map(course => {
-		return (
+export default function Courses() {
+	const [courses, setCourses] = useState([])
 
-			<CourseCard key={course.id} course={course}/>
-		)
+	useEffect(() => {
+		fetch(`${process.env.REACT_APP_API_URL}/courses/`)
+			.then(response => response.json())
+			.then(result => {
+				setCourses(
+					result.map(course => {
+						return (
+
+							<CourseCard key={course._id} course={course} />
+						)
+					})
+				)
+			})
 	})
 
-	return(
+
+	return (
 		<>
 			{courses}
 		</>
-		
+
 	)
 }

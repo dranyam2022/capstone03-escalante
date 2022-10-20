@@ -4,6 +4,7 @@ import { UserProvider } from './UserContext'
 import AppNavbar from './components/AppNavbar';
 import Home from './pages/Home'
 import Courses from './pages/Courses'
+import CourseView from './components/CourseView'
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Logout from './pages/Logout'
@@ -13,7 +14,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 function App() {
   const [user, setUser] = useState({
-    email: localStorage.getItem('email')
+    id: null,
+    isAdmin: null
   })
 
   const unsetUser = () => {
@@ -31,6 +33,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/courses" element={<Courses />} />
+              <Route path="/courses/:courseId" element={<CourseView />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/logout" element={<Logout />} />
