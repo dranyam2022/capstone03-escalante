@@ -1,12 +1,12 @@
-import {Button, Row, Col} from "react-bootstrap";
+import { Button, Row, Col } from "react-bootstrap";
 
-export default function Banner(){
-	return(
+export default function Banner() {
+	return (
 		<Row>
 			<Col className="p-5">
-				<h1>Zuitt Coding Bootcamp</h1>
-				<p>Opportunities for everyone, everywhere!</p>
-				<Button variant="primary">Enroll Now!</Button>
+				<h1>Express Arms Dealer</h1>
+				<p>Cheapest Weapons for Your Protection! </p>
+				<Button variant="dark">Shop Now!</Button>
 			</Col>
 		</Row>
 	)
